@@ -9,6 +9,7 @@ public class Lab2Inheritance {
         q3_Accountant();
         System.out.println("============================================================================================================================================================");
         System.out.println("DDDDD");
+        System.out.println("DDDDD");
     }
 
     static void q1() {
