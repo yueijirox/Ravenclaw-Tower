@@ -14,14 +14,14 @@ public class Lab5_650908 {
 
     }
     static void q1(){
-        ArrayProcessor obj = (data) ->{
+        q1NumberOfEvenElement = (data) ->{
             int sum=0;
             for(int a : data )
                 if(a%2==0)
                     sum+=1;
             return sum;
         };
-        System.out.println(obj.calculate(data));
+        System.out.println(q1NumberOfEvenElement.calculate(data));
 
 
 
@@ -30,7 +30,7 @@ public class Lab5_650908 {
 
 
     static void q2(){
-        ArrayProcessor obj = (data)->{
+        q2IndexOfLargestEvenValue = (data)->{
 
             int tmp=data[0];
             int idx=0;
@@ -41,15 +41,14 @@ public class Lab5_650908 {
                 }
             return idx;
         };
-        System.out.println(obj.calculate(data));
+        System.out.println(q2IndexOfLargestEvenValue.calculate(data));
 
     }
 
     static void oneline(){
         int [] tmp = Arrays.copyOf(data, data.length);
         Arrays.sort(tmp);
-        ArrayProcessor myMedian = (data) -> data[3];
-        System.out.println(Arrays.toString(tmp));
+        ArrayProcessor myMedian = (data) -> data[data.length/2];
         System.out.println(myMedian.calculate(tmp));//48
 
 
