@@ -1,3 +1,3 @@
-interface Canpay{
+interface CanPay{
     public void spend(int direction);
 }

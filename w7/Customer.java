@@ -1,4 +1,4 @@
-public class Customer implements Canpay {
+public class Customer implements CanPay {
     private String name;
     private MemberType memberType;
     
