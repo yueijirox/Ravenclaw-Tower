@@ -1,6 +1,6 @@
 public class Client implements CanPay{
     private String name;
-    MemberTypeWithDiscount membertype;
+    private MemberTypeWithDiscount membertype;
     
 
 
