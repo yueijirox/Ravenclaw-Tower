@@ -36,5 +36,6 @@ public class Basket {
     public void buyNow(LineItem item) {
         putInBasket(item);
         printInvoice();
+        
     }
 }

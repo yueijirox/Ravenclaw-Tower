@@ -59,4 +59,8 @@ public class Shop {
         System.out.println("Grand total is "+Basket.Grandtotal);
     }
 
+    public void addBuynow(Basket Bu){
+        ordersToday.add(Bu);
+    }
+
 }
