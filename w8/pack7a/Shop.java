@@ -18,7 +18,6 @@ public class Shop {
         catalog.add(new Noodles("korean", "i can afford"), 33);
         // duplicate won't update
         catalog.add(new Noodles("mama", "duplicate"), 11);
-        System.out.println("DADADA");
         showCatalog();
     }
 
@@ -40,11 +39,16 @@ public class Shop {
     public LineItem generateBuyNowItem(String pName) {
         int price = catalog.getPrice(pName);
         Product product = catalog.getProduct(pName);
-        return new LineItem(product, 1, price);
+        LineItem  LN = new LineItem(product, 1, price);
+        Basket addOrder = new Basket();
+        addOrder.putInBasket(LN);
+        ordersToday.add(addOrder);
+        return LN;
     }
 
     public void getPayment(Basket b) {
         System.out.println("I am cashier");
+        ordersToday.add(b);
         b.printInvoice();
         
     }
@@ -59,8 +63,5 @@ public class Shop {
         System.out.println("Grand total is "+Basket.Grandtotal);
     }
 
-    public void addBuynow(Basket Bu){
-        ordersToday.add(Bu);
-    }
 
 }

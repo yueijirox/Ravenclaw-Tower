@@ -18,7 +18,6 @@ public class Catalog {
     }
 
     public void showCatalog() {
-        System.out.println("KUYZA");
         for (String key : productList.keySet()) {
             Product productName = productList.get(key);
             double productPrice = priceList.get(key);

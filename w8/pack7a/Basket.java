@@ -14,8 +14,8 @@ public class Basket {
     }
 
     public void putInBasket(LineItem item) {
-        items.add(item);
         Grandtotal+=item.calculateAmount();
+        items.add(item);
     }
 
     public void printInvoice() {
@@ -28,7 +28,7 @@ public class Basket {
             
         }
         System.out.println("Total is " + sum + "******");
-        
+        System.out.println("=========================================");
         
 
     }
