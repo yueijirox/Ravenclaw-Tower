@@ -15,12 +15,12 @@ import java.util.stream.Collectors;
 
 import pack10_CSMovie.*;
 
-public class Lab10_MovieCounter {
+public class Test_packMovie {
     public static void main(String[] args) {
         warmUp(args);
         hintQ10();
         hintQ11();
-        MovieCounter mc = new MovieCounter();
+        Lab10_MovieCounter mc = new Lab10_MovieCounter();
         System.out.println("q1");
         q1(mc);
         System.out.println("q2");
@@ -46,65 +46,65 @@ public class Lab10_MovieCounter {
         System.out.println("q11");
         q11(mc);
     }
-    private static void q1(MovieCounter mc) {
+    private static void q1(Lab10_MovieCounter mc) {
         //average score
         Double ans = mc.q1();
         System.out.println("average score is " + String.format("%.2f",ans));
     }
-    private static void q2(MovieCounter mc) {
+    private static void q2(Lab10_MovieCounter mc) {
         //List movies with votes greater than 1_900_000
         List<CSMovie> ans = mc.q2();
         for (CSMovie m : ans) {
             System.out.println(m);
         }
     }
-    private static void q3(MovieCounter mc) {
+    private static void q3(Lab10_MovieCounter mc) {
         // high gross revenue movie
         CSMovie ans = mc.q3();
         System.out.printf("%s --> %d earns\n",ans.getTitle(), ans.getGross());
         
     }
-    private static void q4(MovieCounter mc) {
+    private static void q4(Lab10_MovieCounter mc) {
         // number of genre
         List<String> ans = mc.q4();
         for (String s : ans)
             System.out.println(s);
     }
-    private static void q5(MovieCounter mc) {
+    private static void q5(Lab10_MovieCounter mc) {
         //top 5 least runtime including 0 runtime
         List<String> ans = mc.q5();
         for (String m : ans) {
             System.out.println(m);
         }
     }
-    private static void q6(MovieCounter mc) {
+    private static void q6(Lab10_MovieCounter mc) {
         //highest and lowest budget
         CSMovie [] ans = mc.q6();
         System.out.println("highest -> " + ans[0].getTitle() + " " + String.format("%,d",ans[0].getBudget()));
         System.out.println("Lowest -> " + ans[1].getTitle() + " "  + String.format("%,d",ans[1].getBudget()));
     }
-    private static void q7(MovieCounter mc,String genre) {
+    private static void q7(Lab10_MovieCounter mc,String genre) {
         // top 3 action movies
         List<CSMovie> ans = mc.q7(genre);
         for (CSMovie m : ans) {
             System.out.printf("%-55s %s \t %f  %,15d %,15d%n",m.getTitle(),m.getGenre(),m.getScore(),m.getVotes(),m.getGross());
         }  
     }
-    private static void q8(MovieCounter mc) {
+    private static void q8(Lab10_MovieCounter mc) {
         //top 4 action movies then by title
         List<CSMovie> ans = mc.q8();
         for (CSMovie m : ans) {
             System.out.println(m);
         }  
     }
-    private static void q9(MovieCounter mc) {
+    private static void q9(Lab10_MovieCounter mc) {
         //subtotal gross revenue of each genre
         Map<String,Long> ans = mc.q9();
         for (Entry<String, Long> entry : ans.entrySet()) { 
             System.out.printf("%-20s %,18d%n",entry.getKey(),entry.getValue());
         }
     }
-    private static void q10(MovieCounter mc) {
+    private static void q10(Lab10_MovieCounter mc) {
         // 10 companies with most movies produced
         Map<String,Long> ans = mc.q10();
         for (Entry<String, Long> entry : ans.entrySet()) { 
@@ -112,7 +112,7 @@ public class Lab10_MovieCounter {
             System.out.println(str);
         }
     }
-    private static void q11(MovieCounter mc) {
+    private static void q11(Lab10_MovieCounter mc) {
         // show title with most 'a'
         System.out.println(mc.q11().getTitle());
     }

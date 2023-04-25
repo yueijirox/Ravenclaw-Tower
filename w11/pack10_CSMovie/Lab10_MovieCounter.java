@@ -19,10 +19,10 @@ import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-public class MovieCounter {
+public class Lab10_MovieCounter {
     ArrayList<CSMovie> mList = new ArrayList<>();
     Set<String> uniqueTitle = new HashSet<>();
-    public MovieCounter() {
+    public Lab10_MovieCounter() {
         String row;
         int rowCount = 1;
         int incompleteCount = 0;
