@@ -38,7 +38,7 @@ public class MovieCounter {
         String star;
         String country;
         Integer budget;
-        Integer gross;
+        Long gross;
         String company;
         Integer runtime;
 
@@ -63,7 +63,7 @@ public class MovieCounter {
                 star = tokens[9];
                 country = tokens[10];
                 budget =  (int) (Double.parseDouble(parseDouble(tokens[11])));
-                gross = (int) (Double.parseDouble(parseDouble(tokens[12])));
+                gross = (long) (Double.parseDouble(parseDouble(tokens[12])));
                 company = tokens[13];
                 runtime = (int) (Double.parseDouble(parseDouble(tokens[14])));
                 if (!uniqueTitle.contains(title)) {

@@ -13,7 +13,7 @@ public class CSMovie {
     private String star;
     private String country;
     private Integer budget;
-    private Integer gross;
+    private Long gross;
     private String company;
     private Integer runtime;
 
@@ -22,7 +22,7 @@ public class CSMovie {
     public CSMovie(String title, String rating, String genre, 
                    Integer year, Double score, Integer votes,
                    String director, String star, String country, 
-                   Integer budget, Integer gross, String company,
+                   Integer budget, Long gross, String company,
                     Integer runtime) {
         this.title = title;
         this.rating = rating;
@@ -57,7 +57,7 @@ public class CSMovie {
             String token11 = tokens[11].isEmpty()?"0" : tokens[11];
             budget = Integer.parseInt(token11);
             String token12 = tokens[12].isEmpty()?"0" : tokens[12];
-            gross = Integer.parseInt(token12);
+            gross = Long.parseLong(token12);
             company = tokens[13];
             String token14 = tokens[14].isEmpty()?"0" : tokens[14];
             runtime = Integer.parseInt(token14);
@@ -104,7 +104,7 @@ public class CSMovie {
         return budget;
     }
 
-    public Integer getGross() {
+    public Long getGross() {
         return gross;
     }
 
