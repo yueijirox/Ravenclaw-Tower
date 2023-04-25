@@ -15,9 +15,9 @@ import java.util.stream.Collectors;
 
 import pack10_CSMovie.*;
 
-public class Test_packMovie {
+public class Lab10_MovieCounter {
     public static void main(String[] args) {
-        // warmUp(args);
+        warmUp(args);
         hintQ10();
         hintQ11();
         MovieCounter mc = new MovieCounter();
