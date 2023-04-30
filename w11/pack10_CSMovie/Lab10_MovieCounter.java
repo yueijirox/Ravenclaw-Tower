@@ -91,8 +91,11 @@ public class Lab10_MovieCounter {
 
     public Double q1() {
         
-        double average = mList.stream().mapToDouble(m->m.getScore()).average().getAsDouble();
-        return average;
+        // double average = mList.stream().mapToDouble(m->m.getScore()).average().getAsDouble();
+        // return average;
+        double avg = mList.stream().mapToDouble(m->m.getScore()).average().getAsDouble();
+        return avg;
+
 
     }
     public List<CSMovie> q2() {
@@ -110,9 +113,10 @@ public class Lab10_MovieCounter {
     }
     public List<String> q5() { 
 
-        List<String> runtime = mList.stream().sorted(Comparator.comparing(CSMovie::getRuntime)).map(m -> String.format("%-55s --> %s",m.getTitle(), m.getRuntime())).limit(5).toList();
-    
+        List<String> runtime = mList.stream().sorted(Comparator.comparing(CSMovie::getRuntime)).map(m -> String.format("%-55s --> %s",m.getTitle(), m.getRuntime())).limit(5).collect(Collectors.toList());
+
         return runtime;
+
     }
 
     public CSMovie[] q6() {
@@ -147,47 +151,25 @@ public class Lab10_MovieCounter {
         return sumMap;
     }
     public Map<String, Long> q10() {
-
-        Map<String, Long> movieCountByCompany = new HashMap<>();
-    
-      
-        for (CSMovie movie : mList) {
-            String company = movie.getCompany();
-            movieCountByCompany.put(company, movieCountByCompany.getOrDefault(company, 0L) + 1);
-        }
-    
-        
-        LinkedHashMap<String, Long> sortedMap = new LinkedHashMap<>();
-        movieCountByCompany.entrySet()
-                .stream()
-                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .forEachOrdered(entry -> sortedMap.put(entry.getKey(), entry.getValue()));
-    
-     
-        Map<String, Long> top10Companies = new LinkedHashMap<>();
-        int count = 0;
-        for (Map.Entry<String, Long> entry : sortedMap.entrySet()) {
-            if (count >= 10) {
-                break;
-            }
-            top10Companies.put(entry.getKey(), entry.getValue());
-            count++;
-        }
-    
-        return top10Companies;
+        Map<String, Long> top10Studios = mList.stream()
+            .collect(Collectors.groupingBy(CSMovie::getCompany, Collectors.counting()))
+            .entrySet().stream()
+            .sorted(Map.Entry.<String, Long>comparingByValue().reversed())
+            .limit(10)
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        return top10Studios;
     }
+    
+    
     
     public CSMovie q11() {
         // Function most 'a' 
         Function<CSMovie, Integer> countVowel = m -> {
-            int cnt = 0;
+            long cnt = 0;
             String titlename = m.getTitle();
-            for(int i = 0 ; i< titlename.length() ; i++){
-                if(titlename.charAt(i)=='a' || titlename.charAt(i)== 'A'){
-                    cnt++;
-                }
-            }
-            return cnt;
+            cnt = titlename.chars().filter(c -> c == 'a' || c == 'A').count();
+            
+            return (int) cnt;
         };
 
         Optional<CSMovie> m;
